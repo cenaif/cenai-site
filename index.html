@@ -60,6 +60,24 @@
   .service-num { font-family: 'Syne', sans-serif; font-size: 2rem; font-weight: 800; color: var(--accent); margin-bottom: 1rem; display: block; }
   .service-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem; }
   .service-desc { font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
+
+  /* PORTFOLIO */
+  .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .portfolio-card { background: var(--card); border: 1.5px solid var(--border); border-radius: 4px; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; }
+  .portfolio-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(15,15,14,0.1); }
+  .portfolio-preview { height: 180px; display: flex; align-items: center; justify-content: center; font-size: 3rem; position: relative; overflow: hidden; }
+  .portfolio-preview::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.3)); }
+  .portfolio-body { padding: 1.5rem; }
+  .portfolio-tag { font-family: 'Syne', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+  .portfolio-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; color: #1a1a18; }
+  .portfolio-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; margin-bottom: 1.25rem; }
+  .portfolio-link { display: inline-flex; align-items: center; gap: 0.4rem; font-family: 'Syne', sans-serif; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--accent); text-decoration: none; transition: gap 0.2s; }
+  .portfolio-link:hover { gap: 0.7rem; }
+  .portfolio-coming { background: var(--paper); border: 1.5px dashed var(--border); border-radius: 4px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2.5rem; text-align: center; min-height: 320px; }
+  .portfolio-coming-icon { font-size: 2rem; margin-bottom: 1rem; opacity: 0.3; }
+  .portfolio-coming p { font-size: 0.85rem; color: var(--muted); }
+  .portfolio-coming strong { font-family: 'Syne', sans-serif; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 0.5rem; }
+
   .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
   .pricing-card { background: var(--card); border: 1.5px solid var(--border); border-radius: 4px; padding: 2rem; position: relative; }
   .pricing-card.featured { background: var(--ink); color: var(--paper); border-color: var(--ink); }
@@ -98,8 +116,8 @@
   .stats-row { display: flex; gap: 3rem; margin-top: 3rem; padding-top: 3rem; border-top: 1px solid var(--border); }
   .stat-num { font-family: 'Syne', sans-serif; font-size: 2.5rem; font-weight: 800; letter-spacing: -0.03em; color: #1a1a18; }
   .stat-label { font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; font-family: 'Syne', sans-serif; font-weight: 600; }
+  .maintenance-row { display: flex; align-items: center; justify-content: space-between; gap: 2rem; margin-top: 2rem; background: var(--card); border: 1.5px solid var(--border); border-radius: 4px; padding: 2rem; }
 
-  /* MOBILE OPTIMISATION ONLY — design unchanged above this line */
   @media (max-width: 768px) {
     nav { padding: 1rem 1.5rem; }
     .nav-links { display: none; }
@@ -112,6 +130,7 @@
     .section { padding: 4rem 1.5rem; }
     .section-title { font-size: 2rem; }
     .services-grid { grid-template-columns: 1fr 1fr; }
+    .portfolio-grid { grid-template-columns: 1fr; }
     .pricing-grid { grid-template-columns: 1fr; gap: 2rem; }
     .process-list { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
     .process-step::after { display: none; }
@@ -138,6 +157,7 @@
   <a href="#" class="nav-logo">Cenai<span>.</span></a>
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
+    <li><a href="#portfolio">Work</a></li>
     <li><a href="#process">Process</a></li>
     <li><a href="#pricing">Pricing</a></li>
     <li><a href="#contact" class="nav-cta">Get a Free Preview</a></li>
@@ -163,16 +183,10 @@
     </div>
     <div class="hero-visual">
       <div class="hero-card">
-        <div class="hero-card-bar">
-          <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
-        </div>
+        <div class="hero-card-bar"><div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div></div>
         <div class="hero-card-body">
-          <div class="mock-hero-bar">
-            <div class="mock-title"></div><div class="mock-sub"></div><div class="mock-btn"></div>
-          </div>
-          <div class="mock-row">
-            <div class="mock-block"></div><div class="mock-block"></div><div class="mock-block"></div>
-          </div>
+          <div class="mock-hero-bar"><div class="mock-title"></div><div class="mock-sub"></div><div class="mock-btn"></div></div>
+          <div class="mock-row"><div class="mock-block"></div><div class="mock-block"></div><div class="mock-block"></div></div>
           <div class="mock-line" style="width:90%"></div>
           <div class="mock-line" style="width:75%"></div>
           <div class="mock-line"></div>
@@ -185,25 +199,12 @@
 
 <div class="marquee-wrap">
   <div class="marquee-track">
-    <span>Restaurants</span><span class="hi">★</span>
-    <span>Salons & Spas</span><span class="hi">★</span>
-    <span>Gyms & Fitness</span><span class="hi">★</span>
-    <span>Medical Clinics</span><span class="hi">★</span>
-    <span>Contractors</span><span class="hi">★</span>
-    <span>Real Estate</span><span class="hi">★</span>
-    <span>Tutors</span><span class="hi">★</span>
-    <span>Retail Shops</span><span class="hi">★</span>
-    <span>Restaurants</span><span class="hi">★</span>
-    <span>Salons & Spas</span><span class="hi">★</span>
-    <span>Gyms & Fitness</span><span class="hi">★</span>
-    <span>Medical Clinics</span><span class="hi">★</span>
-    <span>Contractors</span><span class="hi">★</span>
-    <span>Real Estate</span><span class="hi">★</span>
-    <span>Tutors</span><span class="hi">★</span>
-    <span>Retail Shops</span><span class="hi">★</span>
+    <span>Restaurants</span><span class="hi">★</span><span>Salons & Spas</span><span class="hi">★</span><span>Gyms & Fitness</span><span class="hi">★</span><span>Medical Clinics</span><span class="hi">★</span><span>Contractors</span><span class="hi">★</span><span>Real Estate</span><span class="hi">★</span><span>Tutors</span><span class="hi">★</span><span>Retail Shops</span><span class="hi">★</span>
+    <span>Restaurants</span><span class="hi">★</span><span>Salons & Spas</span><span class="hi">★</span><span>Gyms & Fitness</span><span class="hi">★</span><span>Medical Clinics</span><span class="hi">★</span><span>Contractors</span><span class="hi">★</span><span>Real Estate</span><span class="hi">★</span><span>Tutors</span><span class="hi">★</span><span>Retail Shops</span><span class="hi">★</span>
   </div>
 </div>
 
+<!-- SERVICES -->
 <section class="section" id="services">
   <p class="section-label">What I offer</p>
   <h2 class="section-title">Everything a local business needs online.</h2>
@@ -218,6 +219,41 @@
   </div>
 </section>
 
+<!-- PORTFOLIO -->
+<section class="section" id="portfolio" style="padding-top:0;">
+  <p class="section-label">My Work</p>
+  <h2 class="section-title">Recent projects.</h2>
+  <p class="section-sub">Demo sites built for local Bengaluru businesses — showing what's possible for your niche.</p>
+  <div class="portfolio-grid">
+
+    <div class="portfolio-card">
+      <div class="portfolio-preview" style="background:linear-gradient(135deg,#1e1208,#4a2c18);">
+        <span style="position:relative;z-index:1;">🍛</span>
+      </div>
+      <div class="portfolio-body">
+        <div class="portfolio-tag">Restaurant · Coastal Cuisine</div>
+        <h3>Kori & Neer</h3>
+        <p>A warm, traditional website for a Mangalorean coastal restaurant in Indiranagar — with a filterable menu and table reservation system.</p>
+        <a href="https://demo-restaurant-ivory-iota.vercel.app/" target="_blank" class="portfolio-link">View Live Site →</a>
+      </div>
+    </div>
+
+    <div class="portfolio-coming">
+      <div class="portfolio-coming-icon">✂️</div>
+      <strong>Coming Soon</strong>
+      <p>Salon & Beauty demo — currently in production.</p>
+    </div>
+
+    <div class="portfolio-coming">
+      <div class="portfolio-coming-icon">🏥</div>
+      <strong>Coming Soon</strong>
+      <p>Medical Clinic demo — currently in production.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROCESS -->
 <section style="background:#0f0f0e;padding:6rem 3rem;" id="process">
   <div style="max-width:1100px;margin:0 auto;">
     <p class="section-label" style="color:var(--accent2)">How it works</p>
@@ -231,6 +267,7 @@
   </div>
 </section>
 
+<!-- PRICING -->
 <section class="section" id="pricing">
   <p class="section-label">Pricing</p>
   <h2 class="section-title">Transparent. No surprises.</h2>
@@ -241,9 +278,7 @@
       <div class="pricing-price">₹10,000</div>
       <div class="pricing-note">One-time payment</div>
       <hr class="pricing-divider" />
-      <ul class="pricing-features">
-        <li>Up to 3 pages</li><li>Mobile responsive design</li><li>Contact form</li><li>Domain & hosting setup</li><li>Delivered in 48 hours</li>
-      </ul>
+      <ul class="pricing-features"><li>Up to 3 pages</li><li>Mobile responsive design</li><li>Contact form</li><li>Domain & hosting setup</li><li>Delivered in 48 hours</li></ul>
       <a href="mailto:fernandesc2006@gmail.com" class="btn-outline-dark">Get Started</a>
     </div>
     <div class="pricing-card featured">
@@ -252,9 +287,7 @@
       <div class="pricing-price">₹30,000</div>
       <div class="pricing-note">One-time payment</div>
       <hr class="pricing-divider" />
-      <ul class="pricing-features">
-        <li>Up to 7 pages</li><li>SEO optimized</li><li>Google Analytics setup</li><li>Premium design quality</li><li>2 rounds of revisions</li><li>Delivered in 72 hours</li>
-      </ul>
+      <ul class="pricing-features"><li>Up to 7 pages</li><li>SEO optimized</li><li>Google Analytics setup</li><li>Premium design quality</li><li>2 rounds of revisions</li><li>Delivered in 72 hours</li></ul>
       <a href="mailto:fernandesc2006@gmail.com" class="btn-outline-white">Get Started</a>
     </div>
     <div class="pricing-card">
@@ -262,13 +295,11 @@
       <div class="pricing-price">₹60,000+</div>
       <div class="pricing-note">One-time payment</div>
       <hr class="pricing-divider" />
-      <ul class="pricing-features">
-        <li>Unlimited pages</li><li>Booking / order system</li><li>CRM integration</li><li>Custom functionality</li><li>Priority support</li><li>Monthly retainer option</li>
-      </ul>
+      <ul class="pricing-features"><li>Unlimited pages</li><li>Booking / order system</li><li>CRM integration</li><li>Custom functionality</li><li>Priority support</li><li>Monthly retainer option</li></ul>
       <a href="mailto:fernandesc2006@gmail.com" class="btn-outline-dark">Let's Talk</a>
     </div>
   </div>
-  <div class="maintenance-row" style="margin-top:2rem;background:var(--card);border:1.5px solid var(--border);border-radius:4px;padding:2rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;">
+  <div class="maintenance-row">
     <div>
       <p style="font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;margin-bottom:0.35rem;color:#1a1a18;">Monthly Maintenance Plan — from ₹2,000/mo</p>
       <p style="font-size:0.875rem;color:var(--muted);">Content updates · Security & backups · SEO improvements · Monthly reporting. Cancel anytime.</p>
@@ -277,6 +308,7 @@
   </div>
 </section>
 
+<!-- CTA -->
 <div class="cta-section" id="contact">
   <h2>See your business online <em style="color:var(--accent2);font-style:normal;">today.</em></h2>
   <p>I'll build a free sample homepage for your business — no commitment, no payment. Just reach out.</p>
@@ -287,6 +319,7 @@
   <p>© 2025 Cenai Fernandes · Bengaluru, Karnataka</p>
   <div class="footer-links">
     <a href="#services">Services</a>
+    <a href="#portfolio">Work</a>
     <a href="#pricing">Pricing</a>
     <a href="mailto:fernandesc2006@gmail.com">Contact</a>
   </div>
@@ -294,12 +327,9 @@
 
 <script>
   const mobileBtn = document.querySelector('.nav-mobile-cta');
-  function toggleMobileBtn() {
-    mobileBtn.style.display = window.innerWidth <= 768 ? 'inline-block' : 'none';
-  }
+  function toggleMobileBtn() { mobileBtn.style.display = window.innerWidth <= 768 ? 'inline-block' : 'none'; }
   toggleMobileBtn();
   window.addEventListener('resize', toggleMobileBtn);
 </script>
-
 </body>
 </html>
